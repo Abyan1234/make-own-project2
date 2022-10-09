@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Final project</title>
+
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    
+    <script src="https://unpkg.com/aframe-spe-particles-component@^1.0.4/dist/aframe-spe-particles-component.min.js"></script>
+      
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+    <script src="https://raw.githack.com/whitehatjr/ar-gesture-handler/main/index.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+
+<body>
+    <a-scene id="scene">
+        <a-scene 
+    embedded
+     arjs="sourceType:webcam;debugUiEnabled:false;trackingMethod:best;"
+     vr-mode-ui="enabled:false"
+     >
+        <!--GLTF Models-->
+      <a-asset-item id="hero" src="./assets/sphere_explosion/"></a-asset-item>
+
+
+      <!-- Hiro Marker -->
+        <a-marker preset="hiro">
+  
+          <a-entity 
+            id="model" 
+            position="-0.1 0 0" 
+            gltf-model="#Hiro_marker.png" 
+            rotation="-90 0 0" 
+            scale="10 5 5"
+            animation-mixer>
+          </a-entity>
+          
+        </a-marker>
+        <a-entity position="0 1 0 " spe-particles="        
+        color: black, purple, blue, turquoise, green, yellow, orange, red, pink, white; 
+        distribution: sphere; 
+        randomize-velocity: false;
+        radius: 5; 
+        particle-count: 10000; 
+        velocity: 100; 
+        velocity-spread: 100; 
+        drag: 10; 
+        max-age: 2;
+        duration: -2,
+        blending: additive;
+        active-multiplier: 1000; 
+        size: 2, 2, 2, 1">
+        </a-entity>
+
+        <a-sky color="black"></a-sky>
+        <a-camera position="0 0 60"></a-camera>
+    </a-scene>
+</a-scene>
+</body>
+
+</html>
